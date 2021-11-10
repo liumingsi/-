@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/index1.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery1.42.min.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<div class="header">
+    <h1 class="logo"><a href="#"><img src="华为商城img/logo.png"></a><span></span><a href="#"><img src="华为商城img/logo2.png"/></a></h1>
+    <ul class="nav">
+        <li><a href="#">手机</a></li>
+        <li><a href="#">笔记本电脑</a></li>
+        <li><a href="#">平板&穿戴</a></li>
+        <li><a href="#">智能家居</a></li>
+        <li><a href="#">配件</a></li>
+        <li><a href="#">企业购</a></li>
+        <li><a href="#"><img src="华为商城img/搜索.png"></a> </li>
+    </ul>
+</div>
+<!--banner-->
+<!--banner-->
+<section>
+    <div class="imgbox">
+        <img src="华为商城img/b1.jpg" alt="">
+        <img src="华为商城img/b2.jpg" alt="">
+        <img src="华为商城img/b3.jpg" alt="">
+        <img src="华为商城img/b4.jpg" alt="">
+    </div>
+    <div class="bth">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(".imgbox").width($(".imgbox img").length*1920)
+        n=2;
+        function imgScroll(){
+            if(n<$(".imgbox img").length-1){
+                n=n+1;
+            }else{
+                n=1;
+                $(".imgbox").css({left:"50%",marginLeft:-960})
+            }
+            $(".imgbox").animate({marginLeft:-960-1920*n},1000)
+
+            if(n==$(".imgbox img").length-1){
+                //显示最后一张照片的时候第一个按钮添加类
+                $(".bth span").eq(0).addClass("current").siblings().removeClass("current")
+            }else{
+                //对应第几个按钮添加类
+                $(".bth span").eq(n).addClass("current").siblings().removeClass("current")
+            }
+        }
+        timer=setInterval(imgScroll,2000)
+        $(".bth span").click(function(){
+            n=$(this).index();
+            $(".imgbox").animate({marginLeft:-960-1920*n},1000)
+            $(".bth span").eq(n).addClass("current").siblings().removeClass("current")
+        })
+        $(".banner").mouseenter(function(){
+            clearInterval(timer)
+        }).mouseleave(function(){
+            timer=setInterval(imgScroll,2000)
+        })
+    </script>
+</section>
+<!--手机-->
+<div class="cp">
+    <img class="i1" src="华为商城img/t1.jpg">
+    <div class="tu">
+        <a href="#">
+          <div class="d1">
+            <img src="华为商城img/s1.png">
+             <h2>Mate 40 RS保时捷设计</h2>
+              <p class="p1">10:08限量开售</p>
+              <span><p>¥12999</p></span>
+          </div>
+        </a>
+        <a href="#">
+            <div class="d1">
+                <img src="华为商城img/s2.png">
+                <h2>HL JAWEI Mate 30E Pro</h2>
+                <p class="p1"> 麒麟990E 5G旗舰SoC芯片</p>
+                <span><p>¥5299</p></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="d1">
+                <img src="华为商城img/s3.png">
+                <h2>HL JAWEI P40 Pro+</h2>
+                <p class="p1">100倍双目变焦</p>
+                <span><p>¥7288</p></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="d1">
+                <img src="华为商城img/s4.png">
+                <h2>HL JAWEI Mate 30 RS</h2>
+                <p class="p1">保时捷设计|致敬时代</p>
+                <span><p>¥12988</p></span>
+            </div>
+        </a>
+    </div>
+</div>
+<!--笔记本电脑-->
+<div class="dn">
+    <img class="i11" src="华为商城img/t2.jpg">
+    <div class="tu1">
+        <div class="d11">
+            <img src="华为商城img/bjb1.png">
+            <a href="#">
+                <h2>HUAWEI MateBook X Pro</h2>
+                <p class="p11"> 3K触控全面屏</p>
+                <span><p>¥9999</p></span>
+            </a>
+        </div>
+        <div class="d11">
+            <img src="华为商城img/bjb2.png">
+            <a href="#">
+                <h2>华为平板M6 8.4英寸</h2>
+                <p class="p11">麒麟980芯片|哈曼卡顿调音</p>
+                <span><p>¥2199</p></span>
+            </a>
+        </div>
+        <div class="d11">
+            <img src="华为商城img/bjb3.png">
+            <a href="#">
+                <h2>华为畅享平板2</h2>
+                <p class="p11">麒麟710A芯片|全高清大屏</p>
+                <span><p>¥2199</p></span>
+            </a>
+        </div>
+            <div class="d11">
+                <img src="华为商城img/bjb4.png">
+                <a href="#">
+                <h2>华为MatePad</h2>
+                <p class="p11">7nm麒麟820芯片</p>
+                <span><p>¥3199</p></span>
+                </a>
+            </div>
+    </div>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $(".tu1").find(".d11").mouseenter(function(){
+            $(this).css("opacity","1").siblings(".d11").css("opacity","0.2");
+        })
+        $(".tu1").mouseleave(function(){
+            $(".tu1 .d11").css("opacity","1");
+        })
+    })
+</script>
+</div>
+<!--手表-->
+<div class="sb">
+    <img class="i1" src="华为商城img/t3.jpg">
+    <div class="tu">
+        <a href="#">
+            <div class="d1">
+                <div class="d3">
+                <img src="华为商城img/jb1.png">
+                </div>
+                <h2>HUAWEI WATCH GT 2</h2>
+                <p class="p1">麒麟A1芯片|强劲续航售</p>
+                <span><p>¥1499</p></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="d1">
+                <div class="d3">
+                    <img src="华为商城img/jb2.png">
+                </div>
+                <h2>华为儿童手表4X</h2>
+                <p class="p1">50米防水|高清双摄</p>
+                <span><p>¥1349</p></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="d1">
+                <div class="d3">
+                    <img src="华为商城img/jb3.png">
+                </div>
+                <h2>华为手环4 Pro</h2>
+                <p class="p1">炫彩表盘| NFC智能刷卡</p>
+                <span><p>¥499</p></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="d1">
+                <div class="d3">
+                    <img src="华为商城img/jb4.png">
+                </div>
+                <h2>华为儿童手表3 Pro</h2>
+                <p class="p1">视频通话|高清拍照</p>
+                <span><p>¥799</p></span>
+            </div>
+        </a>
+    </div>
+</div>
+<!--电视-->
+<div class="ds">
+    <img class="i1" src="华为商城img/t4.jpg">
+    <div class="ds1"><img src="华为商城img/ds1.jpg"/></div>
+    <div class="tu">
+        <a href="#">
+            <div class="d1">
+                <div class="d3">
+                    <img src="华为商城img/ds2.png">
+                </div>
+                <h2>华为智慧屏V65</h2>
+                <p class="p1">升降式AI摄像头| 视频通话</p>
+                <span><p>¥1499</p></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="d1">
+                <div class="d3">
+                    <img src="华为商城img/ds3.png">
+                </div>
+                <h2>华为智慧屏V55i</h2>
+                <p class="p1">AI慧眼智慧音响</p>
+                <span><p>¥4999</p></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="d1">
+                <div class="d3">
+                    <img src="华为商城img/ds4.png">
+                </div>
+                <h2>华为智慧屏V75</h2>
+                <p class="p1">鸿鹄芯片自动升降摄像头</p>
+                <span><p>¥12999</p></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="d1">
+                <div class="d3">
+                    <img src="华为商城img/ds5.png">
+                </div>
+                <h2>华为智慧屏X65</h2>
+                <p class="p1">4K HDR超高清OLED</p>
+                <span><p>¥24999</p></span>
+            </div>
+        </a>
+    </div>
+</div>
+<!--服务-->
+<div class="fw">
+    <img class="f2" src="华为商城img/f1.png">
+</div>
+<!--页尾-->
+
+<div class="footer">
+    <div class="wx">
+        <img src="华为商城img/下载.jfif" alt="微信" >
+        <p class="p1">官方微信</p>
+    </div>
+    <div class=bq>Copyright &copy;1986-2020 深圳市华为有限公司 版权所有　粤ICP备09016213号　<a href="#">网站地图</a>　<a href="#">网站首页</a></div>
+</div>
+</body>
+</html>
